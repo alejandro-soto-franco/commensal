@@ -10,5 +10,6 @@
 mod table;
 
 pub mod amplicon;
+pub mod consortium;
 
 pub use table::{Error, SequenceTable, Unique};
