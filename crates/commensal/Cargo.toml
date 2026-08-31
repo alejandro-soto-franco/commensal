@@ -11,3 +11,7 @@ authors.workspace      = true
 flate2     = { workspace = true }
 rayon      = { workspace = true }
 rustc-hash = { workspace = true }
+
+[[bin]]
+name = "commensal"
+path = "src/bin/commensal.rs"
