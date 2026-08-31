@@ -7,13 +7,7 @@ use std::time::Instant;
 
 use commensal::amplicon::{BimeraOptions, dereplicate, flag_bimeras, read_fastq};
 
-fn main() {
-    let mut args: Vec<String> = std::env::args().skip(1).collect();
-    if args.first().map(String::as_str) != Some("amplicon") {
-        eprintln!("usage: commensal amplicon <reads.fastq[.gz]> [more ...] [--out table.tsv]");
-        std::process::exit(2);
-    }
-    args.remove(0);
+pub fn run(args: Vec<String>) {
     if args.is_empty() {
         eprintln!("usage: commensal amplicon <reads.fastq[.gz]> [more ...] [--out table.tsv]");
         std::process::exit(2);

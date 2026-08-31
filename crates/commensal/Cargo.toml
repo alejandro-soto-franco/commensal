@@ -15,4 +15,4 @@ rustc-hash = { workspace = true }
 
 [[bin]]
 name = "commensal"
-path = "src/bin/commensal.rs"
+path = "src/bin/commensal/main.rs"
