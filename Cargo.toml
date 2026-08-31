@@ -1,0 +1,22 @@
+[workspace]
+resolver = "3"
+members  = ["crates/commensal"]
+
+[workspace.package]
+version      = "0.1.0"
+edition      = "2024"
+rust-version = "1.85"
+license      = "Apache-2.0"
+authors      = ["Alejandro Soto Franco <sotofranco.eng@gmail.com>"]
+
+[workspace.dependencies]
+flate2     = "1"
+rayon      = "1"
+rustc-hash = "2"
+ermak      = { path = "../../../ermak" }
+pyo3       = { version = "0.28", features = ["extension-module", "abi3-py310"] }
+numpy      = "0.28"
+
+[profile.release]
+lto           = "thin"
+codegen-units = 1

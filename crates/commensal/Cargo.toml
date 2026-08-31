@@ -1,0 +1,13 @@
+[package]
+name        = "commensal"
+description = "Gut commensal analysis: amplicon sequences, consortium dynamics, and host receptor kinetics"
+version.workspace      = true
+edition.workspace      = true
+rust-version.workspace = true
+license.workspace      = true
+authors.workspace      = true
+
+[dependencies]
+flate2     = { workspace = true }
+rayon      = { workspace = true }
+rustc-hash = { workspace = true }
