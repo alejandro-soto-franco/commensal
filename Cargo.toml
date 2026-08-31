@@ -13,7 +13,7 @@ authors      = ["Alejandro Soto Franco <sotofranco.eng@gmail.com>"]
 flate2     = "1"
 rayon      = "1"
 rustc-hash = "2"
-ermak      = { path = "../../../ermak" }
+ermak      = { path = "../ermak" }
 pyo3       = { version = "0.28", features = ["extension-module", "abi3-py310"] }
 numpy      = "0.28"
 

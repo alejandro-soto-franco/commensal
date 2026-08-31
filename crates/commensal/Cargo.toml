@@ -8,6 +8,7 @@ license.workspace      = true
 authors.workspace      = true
 
 [dependencies]
+ermak      = { workspace = true }
 flate2     = { workspace = true }
 rayon      = { workspace = true }
 rustc-hash = { workspace = true }
