@@ -16,7 +16,7 @@ def steady_state(input: float) -> dict[str, Any]:
     transients have gone, for the reference *A. caccae* consortium.
 
     Returns a dict with `substrate`, `biomass`, `butyrate` and `persists`,
-    the last saying whether the strain holds against washout.
+    the last saying whether the strain withstands washout.
     """
     return _core.consortium_steady_state(input)
 

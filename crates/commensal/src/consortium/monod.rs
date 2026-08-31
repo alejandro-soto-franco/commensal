@@ -86,7 +86,7 @@ pub struct SteadyState {
     pub substrate: f64,
     pub biomass: f64,
     pub butyrate: f64,
-    /// Whether the strain holds against washout.
+    /// Whether the strain withstands washout.
     pub persists: bool,
 }
 

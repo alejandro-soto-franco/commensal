@@ -4,7 +4,7 @@
 //! *Roseburia hominis* binds TLR5 more tightly than *Salmonella* `StFliC` and
 //! is silent, so affinity ranks the two the wrong way round.
 //!
-//! # The architecture
+//! # Assembly architecture
 //!
 //! Signalling wants the 2:2 assembly of the crystal structure (Yoon et al.
 //! 2012), and the literature settles where the discrimination sits. Forstneric
@@ -29,7 +29,7 @@
 //! receptor density. That is a prediction about the shape of a dose response,
 //! not a detail of bookkeeping.
 //!
-//! # What the model is for
+//! # Purpose of the model
 //!
 //! Every published measurement of these flagellins covers step 1. Nothing
 //! measures step 3, and step 3 is where silence is decided. The model takes the

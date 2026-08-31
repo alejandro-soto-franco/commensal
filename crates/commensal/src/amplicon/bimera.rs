@@ -13,7 +13,7 @@ pub struct BimeraOptions {
     pub min_parent_abundance: u32,
     /// How far a parent may be shifted against the query when matching. The
     /// reference implementation defaults to 16, which is what lets it call
-    /// chimeras whose parents differ in length or carry an indel.
+    /// chimeras whose parents differ in length or have an indel.
     pub max_shift: isize,
 }
 
@@ -31,7 +31,7 @@ impl Default for BimeraOptions {
 /// offset within `max_shift`.
 ///
 /// Comparing `query[i]` against `parent[i + d]` for a shift `d` is what lets a
-/// parent of a different length, or one carrying an indel, still supply a side
+/// parent of a different length, or one with an indel, still supply a side
 /// of the join. The best prefix and the best suffix are taken independently,
 /// since the two sides of a chimera come from different parents anyway.
 fn coverage(query: &[u8], parent: &[u8], max_shift: isize) -> (usize, usize) {
@@ -186,7 +186,7 @@ mod tests {
 
     #[test]
     fn a_shift_lets_parents_of_a_different_length_still_convict() {
-        // The left parent carries one extra base at its start, so no
+        // The left parent has one extra base at its start, so no
         // zero-shift comparison finds the join and a shifted one does.
         let left = u("TAAAACCCC", 100);
         let right = u("GGGGTTTT", 100);
