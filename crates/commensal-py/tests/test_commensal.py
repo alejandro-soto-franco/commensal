@@ -33,3 +33,10 @@ def test_decomposition_splits_an_observed_fold():
 
 def test_version_is_exposed():
     assert commensal.__version__
+
+
+def test_simulate_rejects_a_non_positive_step():
+    with pytest.raises(ValueError):
+        consortium.simulate(0.5, 0.0, 0.01)
+    with pytest.raises(ValueError):
+        consortium.simulate(0.5, 24.0, 0.0)

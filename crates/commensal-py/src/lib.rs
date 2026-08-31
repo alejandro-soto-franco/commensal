@@ -57,6 +57,9 @@ fn consortium_steady_state(py: Python<'_>, input: f64) -> PyResult<Py<PyAny>> {
     Ok(d.into_any().unbind())
 }
 
+/// A trajectory as two numpy arrays: times, and a three-column state.
+type Trajectory<'py> = (Bound<'py, numpy::PyArray1<f64>>, Bound<'py, numpy::PyArray2<f64>>);
+
 /// A trajectory crosses as two numpy arrays, times and a three-column state,
 /// since a list of tuples that long is slow to build and slow to use.
 #[pyfunction]
@@ -65,8 +68,16 @@ fn consortium_simulate<'py>(
     dose: f64,
     hours: f64,
     dt: f64,
-) -> (Bound<'py, numpy::PyArray1<f64>>, Bound<'py, numpy::PyArray2<f64>>) {
+) -> PyResult<Trajectory<'py>> {
     use numpy::{IntoPyArray, ndarray::Array2};
+    let hours_positive = hours > 0.0;
+    if !hours_positive {
+        return Err(PyValueError::new_err("hours must be positive"));
+    }
+    let dt_positive = dt > 0.0;
+    if !dt_positive {
+        return Err(PyValueError::new_err("dt must be positive"));
+    }
     let c = commensal::consortium::Consortium::default();
     let initial = commensal::consortium::State {
         substrate: 0.0,
@@ -81,7 +92,7 @@ fn consortium_simulate<'py>(
         states[[i, 1]] = s.biomass;
         states[[i, 2]] = s.butyrate;
     }
-    (times.into_pyarray(py), states.into_pyarray(py))
+    Ok((times.into_pyarray(py), states.into_pyarray(py)))
 }
 
 #[pyfunction]

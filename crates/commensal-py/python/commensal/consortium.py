@@ -29,5 +29,7 @@ def simulate(
 
     Returns `(times, states)`, where `states` has one row per time point and
     three columns: substrate, biomass, butyrate.
+
+    Raises `ValueError` if `hours` or `dt` is not positive.
     """
     return _core.consortium_simulate(dose, hours, dt)
