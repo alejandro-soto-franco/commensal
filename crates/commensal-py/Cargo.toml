@@ -1,0 +1,18 @@
+[package]
+name         = "commensal-py"
+version      = { workspace = true }
+edition      = { workspace = true }
+rust-version = { workspace = true }
+license      = { workspace = true }
+authors      = { workspace = true }
+description  = "PyO3 bindings for commensal (built for PyPI via maturin; not a consumable Rust crate)"
+publish      = false
+
+[lib]
+name       = "_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+commensal = { path = "../commensal", version = "0.1.0" }
+pyo3      = { workspace = true }
+numpy     = { workspace = true }
