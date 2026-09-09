@@ -4,6 +4,7 @@ version      = { workspace = true }
 edition      = { workspace = true }
 rust-version = { workspace = true }
 license      = { workspace = true }
+repository   = { workspace = true }
 authors      = { workspace = true }
 description  = "PyO3 bindings for commensal (built for PyPI via maturin; not a consumable Rust crate)"
 publish      = false

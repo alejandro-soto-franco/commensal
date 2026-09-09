@@ -8,12 +8,13 @@ edition      = "2024"
 rust-version = "1.85"
 license      = "Apache-2.0"
 authors      = ["Alejandro Soto Franco <sotofranco.eng@gmail.com>"]
+repository   = "https://github.com/alejandro-soto-franco/commensal"
 
 [workspace.dependencies]
 flate2     = "1"
 rayon      = "1"
 rustc-hash = "2"
-ermak      = { path = "../ermak" }
+ermak      = { git = "https://github.com/alejandro-soto-franco/ermak", rev = "98e4b0b28c8b6d8df3d925dd64691bd4201be10c" }
 pyo3       = { version = "0.28", features = ["extension-module", "abi3-py310"] }
 numpy      = "0.28"
 
