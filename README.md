@@ -45,7 +45,7 @@ One sample of PRJNA1091036, 54 058 reads, on one core:
 | bimera detection | 0.181 s | 50.877 s |
 | total | 0.255 s | 52.328 s |
 
-**Dereplication is exact.** The unique set and every abundance match, so that
+**Dereplication is exact.** The unique set and every abundance match. That
 step is a drop-in.
 
 **Bimera detection agrees on 98.5% of sequences**, recovering 90% of the
@@ -54,11 +54,11 @@ reference compares a parent to a query with a banded Needleman-Wunsch, which
 absorbs an indel anywhere in the sequence, while commensal compares them at
 every offset within `max_shift`, which absorbs one only at the ends. Closing
 that gap requires implementing the alignment, and until it closes this stays a
-fast near-agreement rather than a drop-in.
+fast near-agreement.
 
 ### Bimera detection options
 
-Named as dada2 names them, so a run can be matched directly against it.
+Named as dada2 names them. A run can be matched directly against it.
 
 | option | default | meaning |
 |---|---|---|
@@ -68,8 +68,8 @@ Named as dada2 names them, so a run can be matched directly against it.
 
 ## Binding against activation for flagellin at TLR5
 
-Against the D0 swap of Clasen et al. 2023, which makes `RhFlaB` a hundredfold
-more stimulatory while leaving D1 binding untouched, `receptor` decomposes the
+Against the D0 swap of Clasen et al. 2023, in which `RhFlaB` is a hundredfold
+more stimulatory with D1 binding untouched, `receptor` decomposes the
 observed ratio as:
 
 | contribution | factor |
@@ -90,25 +90,25 @@ dissociation, as the T cell receptor does (McKeithan 1995), `n = 4.35` would
 account for the whole ratio with no help from D0. The same exponent applied to
 the `StFliC-PIM` mutant, whose dissociation is 57 times faster, predicts it to
 be 4.4e7-fold less active. The PIM constructs are used as an activity
-threshold in the classification, so they are measurably active, and a spread
-of that size is absent. A single race survives; proofreading does not.
+threshold in the classification and are measurably active, and a spread
+of that size is absent. A single race fits the data; proofreading does not.
 
 ### Predictions
 
-**Receptor density.** Raising TLR5 surface density collapses the agonist to
+Receptor density. Raising TLR5 surface density collapses the agonist to
 silent ratio from about 90-fold at 0.5 receptors per square micrometre to
 under 3-fold at 200, because more encounters fit inside a shorter-lived
 complex. Titrating TLR5 expression in a reporter line tests this directly.
 
-**Dose response.** Both partners in the assembly encounter are occupied
-receptors, so the assembly rate goes as the square of occupancy. The model
+Dose response. Both partners in the assembly encounter are occupied
+receptors. The assembly rate therefore goes as the square of occupancy. The model
 gives a log-log slope of 2.04 below saturation, falling as occupancy
 saturates. A slope near two is the signature of the 2:2 architecture and
 distinguishes it from anything that assembles on a single receptor.
 
-**What to measure.** For adaptor recruitment at 0.1 per second, the agonist's
+What to measure. For adaptor recruitment at 0.1 per second, the agonist's
 2:2 complex has to last about 10 s and the silent one about 0.15 s. That is a
-single-molecule measurement, and it is the number the model most wants.
+single-molecule measurement. The model depends most on that number.
 
 ## Running the binary
 
@@ -166,7 +166,7 @@ result = receptor.decompose(observed_fold=94.0)
   constructs.
 - `forstneric-2017-rol-cte-d0`, the role of the C-terminal D0 domain, for the
   architecture that assigns D0 the job of crosslinking the two receptors and
-  prolonging the assembled complex rather than deciding whether it forms.
+  prolonging the assembled complex. It does not decide whether the complex forms.
 - `yoon-2012-str-bas-tlr`, the structural basis of TLR5-flagellin
   recognition, for the 2:2 assembly the model is built on.
 - `mckeithan-1995-kin-pro-tce`, kinetic proofreading, for the T cell receptor
